@@ -14,22 +14,19 @@ Redis client. Client-Server communication is based on [websockets](http://www.to
 and missing important features like authenticated websockets, input validation and so on. It is intended
 to show how to build a scalable real-time web application with [Tornado](http://www.tornadoweb.org/).
 
-## Example
-You can try out a running demo of this application here: [tornado-redis-chat.herokuapp.com](http://tornado-redis-chat.herokuapp.com/)
-
 ## Requirements and Setup
 First of all you need Redis:
-```Bash
+```
 sudo apt-get install redis-server
 ```
 Next you need the following python packages:
-```Bash
+```
 sudo pip install tornado
 sudo pip install git+https://github.com/evilkost/brukva.git
 ```
 Finally clone this repository:
-```Bash
-git clone https://github.com/nellessen/Tornado-Redis-Chat.git chat
+```
+git clone https://github.com/nislag/chat-bot-tornado.git chat
 cd chat
 ```
 
