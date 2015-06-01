@@ -1,2 +1,5 @@
 tornado==4.2
 -e git://github.com/evilkost/brukva.git#egg=brukva
+feedparser==5.2
+lxml==3.4
+duckduckgo
