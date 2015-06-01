@@ -4,3 +4,4 @@ feedparser==5.1
 lxml==3.4
 duckduckgo
 requests
+redis==2.4.13
