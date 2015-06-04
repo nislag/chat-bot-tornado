@@ -15,7 +15,8 @@ import requests
 from lxml import html
 import duckduckgo
 
-
+num_req = 10
+shift = 2
 
 class Bot(object):
 
@@ -28,28 +29,31 @@ class Bot(object):
             'body': '',
         }        
     
+        
+    def sum_list(self, list_n):
+        sum_n = 0;
+        for i in list_n:
+            sum_n += int(i)            
+        return sum_n
+    
     
     def sum_func(self):
-        sum_n = 0
-        for i in self.command[1:]:
-            sum_n += int(i)
-    
-        self.send_bot(sum_n)
+  
+        self.send_bot(self.sum_list(self.command[1:]))
     
     def mean_func(self):
-        sum_n = 0
-        m = 0
-        for i in self.command[1:]:
-            sum_n += int(i)
-            m += 1
+        
+        list_n = self.command[1:]
+        m = len(list_n)
+        res = self.sum_list(list_n)/m
     
-        self.send_bot(sum_n/m)
+        self.send_bot(res)
     
     def news_func(self):
         news = feedparser.parse('http://news.ycombinator.com/rss')
     
-        for i in range(2, 12):
-            self.send_bot(news.entries[i].title)
+        for i in range(num_req):
+            self.send_bot(news.entries[i + shift].title)
     
     
     #def duck_func(self, message):
@@ -92,8 +96,8 @@ class Bot(object):
     
     def duck_func(self):
     
-        r = duckduckgo.query(str(self.message["body"])[5:])
-        for i in range(0,10):
+        r = duckduckgo.query(str(self.message["body"])[6:])
+        for i in range(num_req):
             self.send_bot(r.related[i].text)
             
             
